@@ -30,5 +30,6 @@ public class ItemServiceTest {
 		when(itemRepositoryMock.findAll()).thenReturn(Arrays.asList(new Item(1,"Samuel",1,10),
 				new Item(2,"Blessing",4,100)));
 		assertEquals(10,itemService.getAll().get(0).getValue());
+
 	}
 }

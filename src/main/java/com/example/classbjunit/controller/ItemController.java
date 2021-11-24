@@ -2,6 +2,7 @@ package com.example.classbjunit.controller;
 
 import java.util.List;
 
+import com.example.classbjunit.dto.UpdateItemDto;
 import com.example.classbjunit.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.classbjunit.model.Item;
 import com.example.classbjunit.service.ItemService;
 import com.example.classbjunit.utils.APIResponse;
+
+import javax.validation.Valid;
 
 @RestController
 public class ItemController {
@@ -45,4 +48,12 @@ public class ItemController {
 		itemRepository.save(item);
 		return ResponseEntity.status(HttpStatus.CREATED).body(item);
 	}
+
+	@PutMapping("/all-items/{id}")
+	public ResponseEntity<?> updateItem(@PathVariable(name = "id") int id,
+										@Valid UpdateItemDto dto){
+		return itemService.updateItem(id, dto);
+
+	}
+
 }

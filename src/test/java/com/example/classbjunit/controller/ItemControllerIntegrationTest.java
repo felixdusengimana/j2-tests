@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ItemControllerIntergrationTest {
+public class ItemControllerIntegrationTest {
 
 	@Autowired
 	private TestRestTemplate restTemplate;
@@ -90,6 +90,13 @@ public class ItemControllerIntergrationTest {
 		assertTrue(response.getStatusCodeValue()==400);
 		assertFalse(response.getBody().isStatus());
 		assertEquals("Item name exists already",response.getBody().getMessage());
+
+	}
+
+    @Test
+	public void updateItem_success(){
+		Item body = new Item(300,"Item1",700,8);
+//		ResponseEntity<APIResponse> response = this.restTemplate.exchange("/all-items/1",,body,APIResponse.class);
 
 	}
 }
