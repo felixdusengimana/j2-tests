@@ -30,7 +30,7 @@ import com.example.classbjunit.model.Item;
 import com.example.classbjunit.service.ItemService;
 import com.example.classbjunit.utils.APIResponse;
 
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 //@WebMvcTest(ItemController.class)
 @SpringBootTest()
 @AutoConfigureMockMvc
@@ -38,6 +38,7 @@ public class ItemControllerTest {
 
 	@MockBean
 	private ItemService itemServiceMock;
+
 	
 	@Autowired
 	private MockMvc mockMvc;
